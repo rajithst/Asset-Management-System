@@ -13,7 +13,12 @@
     
     <div id="page">
         <header>
-            <a class="logo" title="asset" href="index.html"><span>Asset Management System</span></a>
+            <a title="asset" href="index.html">                
+                <div class="logo">
+                    <img src="images/logo.png" height="66px" weight="66px" />
+                    <span id="title">Asset Management System</span>
+                </div>
+            </a>
 
             <nav>
                 <form action="" method="post" name="login">

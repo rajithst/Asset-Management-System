@@ -2,7 +2,7 @@
 
 body{
     font-family:'Open Sans', sans-serif;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 300;
     color: #555;
     margin: 0;
@@ -58,18 +58,29 @@ header{
     color: white;
     /*background: #cf00c4 url(../images/banner.png) no-repeat center bottom;position: relative;*/
 }
-header a.logo{
+header .logo{
     z-index: 1;
     position: absolute;
-    display: block;
-    width: 160px;height: 66px;
-    background: url(../images/logo.png) no-repeat 0 0; background-size:contain;
-    top: 15px; left: 20px;
+    float: left;
+    width: 500px;
+    height: 66px;
+    /*background: url(../images/logo.png) no-repeat 0 0; background-size:contain;*/
+    top: 12px;
+    left: 20px;
 
 }
 
-header a.logo span {
-    display: none;
+header .logo img {
+    float: left;
+}
+
+header #title {
+    margin-left: 18px;
+    margin-top: 18px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    float: left;
 }
 
 div.right{
