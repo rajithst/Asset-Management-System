@@ -53,9 +53,13 @@
              <input type="button" name="submit" value="Create account" style="font-weight:bold;">
              
          </form>
+         
+         <hr />
+         <span id="footer">&#169; 2016</span>
+         
     </div>
 
-
+    
 
 </body>
 </html>

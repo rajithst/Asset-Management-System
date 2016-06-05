@@ -115,7 +115,7 @@ div.left{
 
 .right form{
     position: relative;   
-    margin: 0 auto;
+    margin: 0 auto 60px;
 }
 
 header label {
@@ -128,4 +128,8 @@ header label {
     height: 30px;
     width:300px;
     margin-bottom: 20px;
+}
+
+#footer {
+    font-weight: bold;
 }
