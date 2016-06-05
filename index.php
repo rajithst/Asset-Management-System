@@ -24,11 +24,11 @@
                 <form action="" method="post" name="login">
 
                         <label for="email">Email</label>
-                        <input type="text" name="email">
+                        <input id="input_block" type="text" name="email">
 
                         <label for="password">Password</label>
-                        <input type="password" name="password"> 
-                        <input type="submit" value="Login" style="margin-left:10px;font-weight:bold;"/>
+                        <input id="input_block" type="password" name="password"> 
+                        <input id="btn_block" type="submit" value="Login" style="margin-left:10px;font-weight:bold;"/>
                 </form>
             </nav>
         </header>
