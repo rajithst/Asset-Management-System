@@ -13,7 +13,12 @@
     
     <div id="page">
         <header>
-            <a class="logo" title="asset" href="index.html"><span>Asset Management System</span></a>
+            <a title="asset" href="index.html">                
+                <div class="logo">
+                    <img src="images/logo.png" height="66px" weight="66px" />
+                    <span id="title">Asset Management System</span>
+                </div>
+            </a>
 
             <nav>
                 <form action="" method="post" name="login">
@@ -21,52 +26,40 @@
                         <label for="email">Email</label>
                         <input type="text" name="email">
 
-              <label for="password">password</label>
-             <input type="password" name="password"> 
+                        <label for="password">Password</label>
+                        <input type="password" name="password"> 
+                        <input type="submit" value="Login" style="margin-left:10px;font-weight:bold;"/>
                 </form>
             </nav>
-    </header>
+        </header>
 
         <?php
 
         if(isset($_POST['register'])=== true)
 
-
-
-
         ?>
-
-
-
-
-
-
         <div class="left"><img src="images/aa.png" alt=""></div>
         <div class="right">
-        <h1>Sign Up for free</h1>
+        <h1>Sign Up</h1>
          <form action="" method="post" name="register">
-             <label for="fname">First name</label>
-             <input type="text" name="fname"> <br>
+             <input id="text_input" type="text" name="fname" placeholder="First name"> <br />
 
-             <label for="lname">Lirst name</label>
-             <input type="text" name="lname"><br>
+             <input id="text_input" type="text" name="lname" placeholder="Last name"><br />
 
-             <label for="email">Email</label>
-             <input type="text" name="email"><br> 
+             <input id="text_input" type="text" name="email" placeholder="Email"><br />
 
-              <label for="password">password</label>
-             <input type="password" name="password"> <br>
+             <input id="text_input" type="password" name="password" placeholder="Password"><br />
 
-             <input type="button" name="submit" value="Register">
-
-
-
-
-
+             <input type="button" name="submit" value="Create account" style="font-weight:bold;">
+             
          </form>
+         
+         <hr />
+         <span id="footer">&#169; 2016</span>
+         
     </div>
 
-
+    
 
 </body>
 </html>
