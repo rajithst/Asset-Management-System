@@ -53,7 +53,9 @@ a:visited{
 }
 
 header{
-    height: 100px;
+    height: 90px;
+    background-color: rgba(0,0,0,.9);
+    color: white;
     /*background: #cf00c4 url(../images/banner.png) no-repeat center bottom;position: relative;*/
 }
 header a.logo{
@@ -77,15 +79,14 @@ div.right{
 div.right h1{
     line-height: 1em;
     margin: 0 0 30px 0;
-    color:#1128ed;
+    color: #ffaa00;
 }
 
-nav {
-    background-color: rgba(0,0,0,.40);
-    position: absolute;
+nav {    
+    float: right;
     top: 0px;left: 0px;
-    padding: 50px 0 0 0;
-    width: 100%;
+    padding: 30px 20px 0 0;
+    width: auto;
 }
 nav form{
     float: right;
@@ -102,7 +103,18 @@ div.left{
 }
 
 .right form{
-    position: relative;
-   
+    position: relative;   
     margin: 0 auto;
+}
+
+header label {
+    font-weight: bold;
+    margin-left: 10px;
+    margin-right: 5px;
+}
+
+.right #text_input {
+    height: 30px;
+    width:300px;
+    margin-bottom: 20px;
 }
