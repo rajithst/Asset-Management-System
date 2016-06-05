@@ -1,0 +1,108 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,700,700italic);
+
+body{
+    font-family:'Open Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    color: #555;
+    margin: 0;
+    padding: 0;
+
+}
+
+#page{ background: url(../images/bg.jpg);
+        width:100%;
+        margin:0 auto;
+        position: relative;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+
+h1{
+    margin:0 0 1em 0;
+    font-size: 2.8em;
+    font-weight: 700;
+}
+
+h2{
+    margin:0 0 .5em 0;
+    font-size: 1.6em;
+    font-weight: 700;
+    line-height: 1.1em;
+}
+
+h3{
+    margin:0 0 .5em 0;
+    font-size: 1.3em;
+    font-weight: 700;
+}
+
+h4{
+    margin:0 0 1.5em 0;
+    font-size: 1em;
+    font-weight: 700;
+}
+
+a{
+    color: #007eff;
+}
+
+a:visited{
+    color:#65b1ff;
+}
+
+header{
+    height: 100px;
+    /*background: #cf00c4 url(../images/banner.png) no-repeat center bottom;position: relative;*/
+}
+header a.logo{
+    z-index: 1;
+    position: absolute;
+    display: block;
+    width: 160px;height: 66px;
+    background: url(../images/logo.png) no-repeat 0 0; background-size:contain;
+    top: 15px; left: 20px;
+
+}
+
+header a.logo span {
+    display: none;
+}
+
+div.right{
+    position: absolute;
+    width: 40%;top: 130px;left: 60%;
+}
+div.right h1{
+    line-height: 1em;
+    margin: 0 0 30px 0;
+    color:#1128ed;
+}
+
+nav {
+    background-color: rgba(0,0,0,.40);
+    position: absolute;
+    top: 0px;left: 0px;
+    padding: 50px 0 0 0;
+    width: 100%;
+}
+nav form{
+    float: right;
+    margin:0;
+}
+
+div.left{
+    position: absolute;
+    width: 40%;top: 130px;left: 10%;
+}
+
+.left img{
+    width: 100%;
+}
+
+.right form{
+    position: relative;
+   
+    margin: 0 auto;
+}
