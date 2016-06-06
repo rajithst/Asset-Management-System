@@ -73,3 +73,11 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+.idea/.name
+.idea/Asset-Management-System.iml
+.idea/copyright/
+.idea/encodings.xml
+.idea/inspectionProfiles/
+.idea/misc.xml
+.idea/modules.xml
+.idea/sqldialects.xml

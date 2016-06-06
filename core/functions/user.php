@@ -1,5 +1,12 @@
 <?php
 
+
+function logged_in(){
+
+    return(isset($_SESSION['id'])) ? true : false;
+
+}
+
 function user_id_from_email($con,$email){
 
     $sql = "SELECT `id` FROM `users`  WHERE `email` = '$email'";
@@ -9,12 +16,12 @@ function user_id_from_email($con,$email){
 
 }
 
-function login($email,$password){
+function login($con,$email,$password){
 
     $user_id= user_id_from_email($con,$email);
     $password = md5($password);
 
-    $query=mysqli_query($con,"SELECT COUNT(`id`) FROM `users` WHERE `email`= '$email' AND `password`='$password'");
+    $query=mysqli_query($con,"SELECT * FROM `users` WHERE `email`= '$email' AND `password`='$password'");
     $result=mysqli_num_rows($query);
     return ($result==1) ? $user_id :false;
 
@@ -25,7 +32,7 @@ function login($email,$password){
 
 function register_user($con,$register_data){
 
-
+    $register_data['password']= md5($register_data['password']);
     $fields='`' .implode('`,`' ,array_keys($register_data)) . '`';
     $data = '\'' . implode('\', \'' ,$register_data ) . '\' ';
 

@@ -30,15 +30,19 @@
                 $email = $_POST['email'];
                 $password = $_POST['password'];
 
-                $login = login($email,$password);
-                if($login === true){
+                $login = login($con,$email,$password);
+                if($login === false){
 
+                    echo 'wrong';
+
+                }else{
+
+                    $_SESSION['id']= $login;
+                    header('Location:home.php');
+                    exit();
                 }
 
             }
-
-
-
 
             ?>
 
@@ -66,7 +70,7 @@
             <?php
 
             if (isset($_GET['register']) && empty($_GET['register'])) {
-                echo '<center> registered successfully!!!! </center>';
+                echo '<center> registered successfully!!!! </center>'.'<br>'.'<center>Please Log In..</center>';
 
             }else {
 
