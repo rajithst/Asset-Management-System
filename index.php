@@ -21,6 +21,29 @@
                 </div>
             </a>
 
+
+            <?php
+
+
+            if(empty($_POST['login']) === false){
+
+                $email = $_POST['email'];
+                $password = $_POST['password'];
+
+                $login = login($email,$password);
+                if($login === true){
+
+                }
+
+            }
+
+
+
+
+            ?>
+
+
+
             <nav>
                 <form action="" method="post" name="login">
 
