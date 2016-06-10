@@ -1,5 +1,25 @@
 <?php
 
+function user_data($con,$id){
+    //$data =array();
+    $id= (int)$id;
+
+    $get_num = func_num_args();
+    $get_args =func_get_args();
+
+    if($get_num>1){
+        unset($get_args[0],$get_args[1]);
+        $fields = '`'. implode('`,`',$get_args). '`';
+
+        $res=mysqli_query($con,"SELECT $fields FROM `users` WHERE `id`= $id");
+        $data = mysqli_fetch_assoc($res);
+        return $data;
+
+    }
+
+}
+
+
 
 function logged_in(){
 
@@ -24,8 +44,6 @@ function login($con,$email,$password){
     $query=mysqli_query($con,"SELECT * FROM `users` WHERE `email`= '$email' AND `password`='$password'");
     $result=mysqli_num_rows($query);
     return ($result==1) ? $user_id :false;
-
-
 
 }
 

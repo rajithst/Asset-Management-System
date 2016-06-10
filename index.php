@@ -14,7 +14,7 @@
     
     <div id="page">
         <header>
-            <a title="asset" href="index.html">                
+            <a title="asset" href="">
                 <div class="logo">
                     <img src="images/logo.png" height="66px" weight="66px" />
                     <span id="title">Asset Management System</span>
