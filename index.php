@@ -27,7 +27,7 @@
 
             if(empty($_POST['login']) === false){
 
-                $email = $_POST['email'];
+                 $email = $_POST['email'];
                 $password = $_POST['password'];
 
                 $login = login($con,$email,$password);
@@ -41,7 +41,6 @@
                     header('Location:home.php');
                     exit();
                 }
-
             }
 
             ?>
@@ -56,7 +55,7 @@
 
                         <label for="password">Password</label>
                         <input id="input_block" type="password" name="password"> 
-                        <input id="btn_block" type="submit" value="Login" style="margin-left:10px;font-weight:bold;"/>
+                        <input id="btn_block" type="submit" value="Login" name="login" style="margin-left:10px;font-weight:bold;"/>
                 </form>
             </nav>
         </header>
