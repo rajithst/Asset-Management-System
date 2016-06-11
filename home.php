@@ -36,7 +36,10 @@ if(logged_in() === false){
 
 
                     <label for="email">Welcome <?php echo $user_data['first_name']; ?> </label>
-                <form action="logout.php"><input type="submit" name="logout" value="Sign Out" style="margin-left:10px;font-weight:bold;"/></form>
+
+                <a href="<?php echo $user_data['first_name'];?>"><input type="image" src="images/icons/user.png" name="setting" value="settings " style="margin-left:10px;font-weight:bold;"/></a>
+                <a href="logout.php"><input type="image" src="images/icons/logout.png" name="logout" value="Sign Out" style="margin-left:10px;font-weight:bold;"/></a>
+
 
             </nav>
 
@@ -44,9 +47,9 @@ if(logged_in() === false){
         </header>
 
 		<div class="assets">
-		
-		
-		
+
+            <a href="add.php">add items</a>
+
 		</div>
 
 

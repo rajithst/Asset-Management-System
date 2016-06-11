@@ -81,3 +81,7 @@ $RECYCLE.BIN/
 .idea/misc.xml
 .idea/modules.xml
 .idea/sqldialects.xml
+
+test.php
+users.sql
+index.html
