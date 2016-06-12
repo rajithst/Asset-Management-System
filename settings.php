@@ -36,10 +36,10 @@ if(logged_in() === false){
 
             <label for="email"> <?php echo $user_data['first_name']; ?>'s Profile </label>
 
-
-            <a href="<?php echo $user_data['first_name'];?>"><input type="image" src="images/icons/user.png" name="setting" value="settings " style="margin-left:10px;"/></a>
-            <input type="image" src="images/icons/settings.png" style="margin-left:10px;">
-            <a href="logout.php"><input type="image" src="images/icons/logout.png" name="logout" value="Sign Out" style="margin-left:10px;"/></a>
+            <a href="home.php"><input type="image" src="images/icons/home.png" title="Home" value="home " style="margin-left:10px;"/></a>
+            <a href="<?php echo $user_data['first_name'];?>"><input type="image" src="images/icons/user.png" title="Profile" value="settings " style="margin-left:10px;"/></a>
+            <input type="image" src="images/icons/settings.png" title="Settings" style="margin-left:10px;">
+            <a href="logout.php"><input type="image" src="images/icons/logout.png" title="Logout" value="Sign Out" style="margin-left:10px;"/></a>
 
 
 
