@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS assets (
   title varchar(32) NOT NULL,
   category varchar(32) NOT NULL,
   quantity int(11) NOT NULL,
-  price DECIMAL(2,2) NOT NULL,
+  price FLOAT NOT NULL,
   details VARCHAR(1000),
   PRIMARY KEY(id)
 );
