@@ -10,6 +10,6 @@ if(logged_in() === true){
     $user_data = user_data($con,$session_id,'id','first_name','last_name','email');
 
 
-
+$errors = [];
 }
 

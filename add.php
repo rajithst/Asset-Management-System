@@ -43,19 +43,69 @@ if(logged_in() === false){
 
 
         </header>
+    <br><br>
 
-        <div id='add-item-form'>
+<?php
+
+
+            if(empty($_POST['add_asset'])===false) {
+
+                $reuired_fields = array('title', 'category', 'quantity', 'price');
+                foreach ($_POST as $key => $value) {
+                    if (empty($value) && in_array($key, $reuired_fields) === true) {
+                        $errors[]='Fields marked with asterisk are required';
+                        break 1;
+                    }
+                }
+            }
+?>
+
+        <h2><center>Enter Your Data</center></h2>
+<?php
+            if (isset($_GET['success']) && empty($_GET['success'])) {
+                echo '<center> inserted successfully!!!! </center><br>';
+                echo '<center><a href="home.php">View Results</a>'."    ". '<a href="add.php">Add item</a></center>';
+            }else {
+
+            if (empty($_POST) === false and empty($errors)===true) {
+
+                $asset_data = array(
+                    'userid' => $user_data['id'],
+                    'title' => $_POST['title'],
+                    'category' => $_POST['category'],
+                    'quantity' => $_POST['quantity'],
+                    'price' => $_POST['price'],
+                    'details' => $_POST['details']
+                );
+
+
+                addAsset($con, $asset_data);
+                header('Location:add.php?success');
+                exit();
+
+            }else if(empty($errors)===false){
+
+                echo '<center>'.output_errors($errors).'</center>';
+
+            }
+
+
+
+?>
+
+
+    <div id='add-item-form'>
             <form method='POST' action='add.php'>
                 <table border=0>
                     <tr>
                         <td id='label-col'>
-                            <label>Title</label> </td>
+                            <label>Title*</label> </td>
                         <td id='input-col'>
                             <input type='text' name='title'> </td>
                     </tr>
                     <tr>
                         <td id='label-col'>
-                            <label>Category</label></td>
+                            <label>Category*</label></td>
                         <td id='input-col'>
                             <select name='category'>
                                 <option value='chair'>Chair</option>
@@ -65,13 +115,13 @@ if(logged_in() === false){
                     </tr>
                     <tr>
                         <td id='label-col'>
-                            <label>Quantity</label></td>
+                            <label>Quantity*</label></td>
                         <td id='input-col'>
                             <input type='text' name='quantity'></td>
                     </tr>
                     <tr>
                         <td id='label-col'>
-                            <label>Price</label> </td>
+                            <label>Price*</label> </td>
                         <td id='input-col'>
                             <input type='text' name='price'> </td>
                     </tr>
@@ -91,22 +141,7 @@ if(logged_in() === false){
 
     </div>
 
-    <?php
-    if(isset($_POST['add_asset'])) {
-        $asset_data = array (
-            'userid' => $user_data['id'],
-            'title' => $_POST['title'],
-            'category' => $_POST['category'],
-            'quantity' => $_POST['quantity'],
-            'price' => $_POST['price'],
-            'details' => $_POST['details']
-        );
 
-        addAsset($con, $asset_data);
-        header('Location:home.php');
-        exit();
-    }
-    ?>
-
+<?php } ?>
 </body>
 </head>
