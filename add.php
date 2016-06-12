@@ -1,3 +1,13 @@
+<?php require 'core/init.php';
+
+if(logged_in() === false){
+
+    session_destroy();
+    header('Location:index.php');
+    exit();
+
+} ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -57,7 +67,7 @@
                         <td id='label-col'>
                             <label>Quantity</label></td>
                         <td id='input-col'>
-                            <input type='text' name='quanity'></td>
+                            <input type='text' name='quantity'></td>
                     </tr>
                     <tr>
                         <td id='label-col'>
@@ -72,7 +82,7 @@
                             <textarea name='details' rows='10'></textarea> </td>
                     </tr>                    
                 </table> 
-                <input type='submit' value='Add'>
+                <input type='submit' value='Add' name='add_asset'>
             </form>
         </div>
 
@@ -82,8 +92,19 @@
     </div>
 
     <?php
-    if(isset($_POST['submit'])) {
+    if(isset($_POST['add_asset'])) {
+        $asset_data = array (
+            'userid' => $user_data['id'],
+            'title' => $_POST['title'],
+            'category' => $_POST['category'],
+            'quantity' => $_POST['quantity'],
+            'price' => $_POST['price'],
+            'details' => $_POST['details']
+        );
 
+        addAsset($con, $asset_data);
+        header('Location:home.php');
+        exit();
     }
     ?>
 
