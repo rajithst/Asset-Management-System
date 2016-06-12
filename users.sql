@@ -36,17 +36,32 @@ CREATE TABLE IF NOT EXISTS `users` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
 --
+-- Table structure for table `assets`
+--
+
+CREATE TABLE IF NOT EXISTS assets (
+  id int(11) NOT NULL AUTO_INCREMENT,
+  userid int(11) NOT NULL,
+  title varchar(32) NOT NULL,
+  category varchar(32) NOT NULL,
+  quantity int(11) NOT NULL,
+  price FLOAT NOT NULL,
+  details VARCHAR(1000),
+  PRIMARY KEY(id)
+);
+
+--
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `password`) VALUES
-(4, 's', 'ds', 'rajith', 'rajith'),
-(5, 'rajti', 'da', 'rajith', 'rajith'),
-(6, 'x', 'x', 'rajith', 'rajith'),
-(7, 'gd', 'fd', 'rajith', 'rajith'),
-(8, 'da', 'd', 'rajith', 'rajith'),
-(9, 'rajith', 'thennakoon', 'rajiththennakoonsahdy@gmail.com', 'rajith'),
-(10, 'rajith', 'ds', 'rajith', 'rajith');
+INSERT INTO `users` (`first_name`, `last_name`, `email`, `password`) VALUES
+('s', 'ds', 'rajith', 'rajith'),
+('rajti', 'da', 'rajith', 'rajith'),
+('x', 'x', 'rajith', 'rajith'),
+('gd', 'fd', 'rajith', 'rajith'),
+('da', 'd', 'rajith', 'rajith'),
+('rajith', 'thennakoon', 'rajiththennakoonsahdy@gmail.com', 'rajith'),
+('rajith', 'ds', 'rajith', 'rajith');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
