@@ -53,7 +53,26 @@ if(logged_in() === false){
 
 		</div>
 
-
+        <div class="table-main">
+            <table>
+            <?php
+                $result = getAssets($con, $user_data["id"]);
+                if ($result == null) {
+                    exit("0");
+                }
+                while($row = $result->fetch_assoc()) {
+                    echo "<tr>";
+                    echo "<td>" . $row["title"] . "</td>";
+                    echo "<td>" . $row["category"] . '</td>';
+                    echo '<td>'. $row['quantity'] . '</td>';
+                    echo '<td>' . $row['price'] . '</td>';
+                    echo '<td>' . $row['quantity']*$row['price'] . '</td>';
+                    echo '<td>' . $row['details'] . '</td>';
+                    echo '</tr>';
+                }
+            ?>
+            </table>
+        </div>
 
         <hr />
         <span id="footer">&#169; 2016</span>
