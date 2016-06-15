@@ -72,7 +72,7 @@ if(logged_in() === false){
                 while($row = $result->fetch_assoc()) {
                     echo "<tr style='background-color:";
                     if ($i % 2 == 0) {
-                        echo "#f0f0f0";
+                        echo "#f2f2f2";
                     } else {
                         echo "white";
                     }
@@ -84,6 +84,8 @@ if(logged_in() === false){
                     echo '<td>' . $row['price'] . '</td>';
                     echo '<td>' . $row['quantity']*$row['price'] . '</td>';
                     echo '<td>' . $row['details'] . '</td>';
+                    echo "<td><img src='images/icons/edit.png' height=24/>";
+                    echo "<img src='images/icons/delete.ico' height=24/></td>";
                     echo '</tr>';
                 }
             ?>
