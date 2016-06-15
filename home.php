@@ -84,14 +84,14 @@ if(logged_in() === false){
                     echo '<td>' . $row['price'] . '</td>';
                     echo '<td>' . $row['quantity']*$row['price'] . '</td>';
                     echo '<td>' . $row['details'] . '</td>';
-                    echo "<td><img src='images/icons/edit.png' height=24/>";
+                    echo "<td id='fixed-col'><img src='images/icons/edit.png' height=24/>";
                     echo "<img src='images/icons/delete.ico' height=24/></td>";
                     echo '</tr>';
                 }
             ?>
             </table>
         </div>
-                
+
         <span id="footer"><hr />&#169; 2016</span>
 
     </div>
