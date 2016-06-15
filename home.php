@@ -1,5 +1,6 @@
 
-<?php require 'core/init.php';
+<?php 
+require 'core/init.php';
 
 if(logged_in() === false){
 
@@ -7,7 +8,8 @@ if(logged_in() === false){
     header('Location:index.php');
     exit();
 
-} else {  ?>
+} 
+?>
 
 
 <!DOCTYPE html>
@@ -18,14 +20,14 @@ if(logged_in() === false){
     <title>Asset Management System</title>
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" type="text/css" media="screen" href="css/screen.css">
-    <link rel="stylesheet" href="css/home.css"
+    <link rel="stylesheet" href="css/home.css" />
 
 </head>
 <body>
 
     <div id="page">
         <header>
-            <a title="asset" href="">
+            <a title="asset" href="home.php">
                 <div class="logo">
                     <img src="images/logo.png" height="66px" weight="66px" />
                     <span id="title">Asset Management System</span>
@@ -61,9 +63,6 @@ if(logged_in() === false){
             </tr>
             <?php
                 $result = getAssets($con, $user_data["id"]);
-                if ($result == null) {
-                    exit("0");
-                }
                 $i = 1;
                 while($row = $result->fetch_assoc()) {
                     echo "<tr style='background-color:";
@@ -86,17 +85,10 @@ if(logged_in() === false){
                 }
             ?>
             </table>
+           
         </div>
-
-        <span id="footer"><hr />&#169; 2016</span>
-
+        
     </div>
-
-
-
+    <div id="footer"><hr>&#169; 2016</div>
 </body>
-    </html>
-
-
-
-    <?php }?>
+</html>
