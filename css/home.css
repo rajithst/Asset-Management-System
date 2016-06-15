@@ -1,6 +1,6 @@
-.table-main {
-    width: 50%;
-    margin: 0 auto;
+.content-center {
+    width: 70%;
+    margin: 20px auto;
 }
 
 table {
@@ -18,4 +18,31 @@ th {
 table, th, td {
     border: 1px solid #ddd;   
     padding-left: 5px; 
+}
+
+table #fixed-col {
+    width: 60px;
+}
+
+.content-center #topic {
+    float: left;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.content-center #add-new {
+    margin-top: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    float: right;
+    padding: 5px;
+    color: black;
+    border: 1px solid #4CAF50;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.content-center #add-new:hover{
+    background-color: #4CAF50;
+    color: white;
 }

@@ -47,13 +47,9 @@ if(logged_in() === false){
 
         </header>
 
-		<div class="assets">
-
-            <a href="add.php">add items</a>
-
-		</div>
-
-        <div class="table-main">
+        <div class="content-center">
+            <div id="topic">Current assets</div>
+            <a href="add.php"><div id="add-new">Add new asset</div></a>
             <table border=0>
             <tr>
                 <th>Title</th>
@@ -84,7 +80,7 @@ if(logged_in() === false){
                     echo '<td>' . $row['price'] . '</td>';
                     echo '<td>' . $row['quantity']*$row['price'] . '</td>';
                     echo '<td>' . $row['details'] . '</td>';
-                    echo "<td><img src='images/icons/edit.png' height=24/>";
+                    echo "<td id='fixed-col'><img src='images/icons/edit.png' height=24/>";
                     echo "<img src='images/icons/delete.ico' height=24/></td>";
                     echo '</tr>';
                 }
@@ -92,8 +88,7 @@ if(logged_in() === false){
             </table>
         </div>
 
-        <hr />
-        <span id="footer">&#169; 2016</span>
+        <span id="footer"><hr />&#169; 2016</span>
 
     </div>
 
