@@ -1,23 +1,35 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,700,700italic);
 
-body{
+html, body{
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     /*font-family:'Open Sans', sans-serif;*/
+    background: url(../images/bg.jpg);
     font-size: 14px;
     font-weight: 300;
     color: #555;
     margin: 0;
     padding: 0;
     line-height: 1.5;
+    min-height: 100%;
+    height: 100%;
+    display: block;
 }
 
-#page{ 
-    background: url(../images/bg.jpg);
+#page{     
     width:100%;
     margin:0 auto;
     position: relative;
-    height: 100vh;
+    min-height: 100%;
     overflow: hidden;
+}
+
+#footer {
+    width: 100%;
+    font-weight: bold;
+    position: relative;
+    z-index: 10;
+    height: 3em;
+    margin-top: -3em;
 }
 
 
@@ -143,12 +155,7 @@ header label {
     overflow: visible;
 }
 
-#footer {
-    width: 100%;
-    font-weight: bold;
-    position: absolute;
-    bottom: 0px;
-}
+
 
 .assets {
     width: 100%;

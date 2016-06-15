@@ -8,11 +8,7 @@ function addAsset($con, $asset_data) {
 
 function getAssets($con, $userid) {
     $sql = "SELECT * FROM assets WHERE userid=$userid";
-    $result = $con->query($sql);
-    if ($result->num_rows == 0) {
-        return false;
-    }
-    return $result;
+    return $con->query($sql);
 }
 
 function output_errors($errors) {
