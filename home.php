@@ -47,13 +47,9 @@ if(logged_in() === false){
 
         </header>
 
-		<div class="assets">
-
-            <a href="add.php">add items</a>
-
-		</div>
-
         <div class="content-center">
+            <div id="topic">Current assets</div>
+            <a href="add.php"><div id="add-new">Add new asset</div></a>
             <table border=0>
             <tr>
                 <th>Title</th>
