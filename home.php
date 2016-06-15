@@ -18,7 +18,7 @@ if(logged_in() === false){
     <title>Asset Management System</title>
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" type="text/css" media="screen" href="css/screen.css">
-
+    <link rel="stylesheet" href="css/home.css"
 
 </head>
 <body>
@@ -54,14 +54,30 @@ if(logged_in() === false){
 		</div>
 
         <div class="table-main">
-            <table>
+            <table border=0>
+            <tr>
+                <th>Title</th>
+                <th>Category</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Total price</th>
+                <th>Details</th>
+            </tr>
             <?php
                 $result = getAssets($con, $user_data["id"]);
                 if ($result == null) {
                     exit("0");
                 }
+                $i = 1;
                 while($row = $result->fetch_assoc()) {
-                    echo "<tr>";
+                    echo "<tr style='background-color:";
+                    if ($i % 2 == 0) {
+                        echo "#f0f0f0";
+                    } else {
+                        echo "white";
+                    }
+                    $i++;
+                    echo "'>";
                     echo "<td>" . $row["title"] . "</td>";
                     echo "<td>" . $row["category"] . '</td>';
                     echo '<td>'. $row['quantity'] . '</td>';

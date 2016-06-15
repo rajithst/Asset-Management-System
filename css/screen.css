@@ -10,13 +10,14 @@ body{
 
 }
 
-#page{ background: url(../images/bg.jpg);
-        width:100%;
-        margin:0 auto;
-        position: relative;
-        height: 100vh;
-        overflow: hidden;
-    }
+#page{ 
+    background: url(../images/bg.jpg);
+    width:100%;
+    margin:0 auto;
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
 
 
 h1{
@@ -148,7 +149,6 @@ header label {
 .assets {
     width: 100%;
     margin:0 auto;
-    height: 80%;
 }
 
 .block{
