@@ -143,7 +143,10 @@ header label {
 }
 
 #footer {
+    width: 100%;
     font-weight: bold;
+    position: absolute;
+    bottom: 0px;
 }
 
 .assets {

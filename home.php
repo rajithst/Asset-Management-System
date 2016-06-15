@@ -53,7 +53,7 @@ if(logged_in() === false){
 
 		</div>
 
-        <div class="table-main">
+        <div class="content-center">
             <table border=0>
             <tr>
                 <th>Title</th>
@@ -91,9 +91,8 @@ if(logged_in() === false){
             ?>
             </table>
         </div>
-
-        <hr />
-        <span id="footer">&#169; 2016</span>
+                
+        <span id="footer"><hr />&#169; 2016</span>
 
     </div>
 
