@@ -1,4 +1,12 @@
-<?php include 'core/init.php'; ?>
+<?php 
+require 'core/init.php'; 
+if(logged_in() === true){
+
+    header('Location:home.php');
+    exit();
+
+} 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
