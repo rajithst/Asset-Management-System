@@ -65,10 +65,11 @@ if(logged_in() === false){
             }else {
 
             if (empty($_POST) === false and empty($errors)===true) {
-
+                $dt=date();
                 $asset_data = array(
                     'userid'    => $user_data['id'],
                     'title'     => $_POST['title'],
+                    /*'date'      => $dt,*/
                     'category'  => $_POST['category'],
                     'quantity'  => $_POST['quantity'],
                     'price'     => $_POST['price'],
@@ -108,6 +109,7 @@ if(logged_in() === false){
                                 <option value='chair'>Chair</option>
                                 <option value='desk'>Desk</option>
                                 <option value='cupboad'>Cupboard</option>
+                                <option value='machinery and equipment'>machinery and equipment</option>
                             </select>
                     </tr>
                     <tr>

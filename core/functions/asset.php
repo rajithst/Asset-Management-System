@@ -12,7 +12,7 @@ function addAsset($con, $asset_data) {
 function asset_data($con,$id){
         $data =array();
         $id= (int)$id;
-        $res=mysqli_query($con,"SELECT `id`,`title`,`category`,`quantity`,`price` FROM `assets` WHERE `id`= $id");
+        $res=mysqli_query($con,"SELECT `id`,`title`,`category`,`quantity`,`price`,`details` FROM `assets` WHERE `id`= $id");
 
             $data = mysqli_fetch_assoc($res);
             return $data;
@@ -33,6 +33,8 @@ function update_assets($con,$update_data,$id){
     $update = array();
     foreach($update_data as $field=>$data){
         $update[]= '`'. $field. '`=\''.$data.'\'';
+        /*echo "UPDATE `assets` SET" . implode(', ',$update) .  " WHERE `id`=$id";
+        die();*/
     }
 
     mysqli_query($con,"UPDATE `assets` SET" . implode(', ',$update) .  " WHERE `id`=$id");

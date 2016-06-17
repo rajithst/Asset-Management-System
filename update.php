@@ -79,10 +79,11 @@ if(logged_in() === false){
             if(isset($_POST['update'])===true and empty($_POST['update'])=== false){
                 $update_data = array(
 
-                    'title' => $_POST['title'],
-                    'category' => $_POST['category'],
-                    'quantity' => $_POST['quantity'],
-                    'details' => $_POST['details']
+                    'title'     => $_POST['title'],
+                    'category'  => $_POST['category'],
+                    'quantity'  => $_POST['quantity'],
+                    'price'  => $_POST['price'],
+                    'details'   => $_POST['details']
                 );
 
 

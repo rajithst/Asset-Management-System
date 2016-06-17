@@ -51,6 +51,7 @@ if(logged_in() === false){
             <table border=0>
             <tr>
                 <th>Title</th>
+                <!--<th>Data & Time</th>-->
                 <th>Category</th>
                 <th>Quantity</th>
                 <th>Price</th>
@@ -71,6 +72,7 @@ if(logged_in() === false){
                     $i++;
                     echo "'>";
                     echo "<td style='text-align: center'>" . $row["title"] . "</td>";
+                    /*echo "<td style='text-align: center'>" . $row['date'] . "</td>";*/
                     echo "<td style='text-align: center'>" . $row["category"] . '</td>';
                     echo '<td style="text-align: center">' . $row['quantity'] . '</td>';
                     echo '<td style="text-align: center">' . $row['price'] . '</td>';
