@@ -35,17 +35,13 @@ if(logged_in() === false){
             </a>
 
             <nav>
-
-
                     <label for="email">Welcome <?php echo $user_data['first_name']; ?> </label>
 
                 <input type="image" src="images/icons/home.png" title="home" value="Home" style="margin-left:10px;"/>
                 <a href="<?php echo $user_data['first_name'];?>"><input type="image" src="images/icons/user.png" title="Profile" value="settings " style="margin-left:10px;"/></a>
                 <a href="logout.php"><input type="image" src="images/icons/logout.png" title="Logout" value="Sign Out" style="margin-left:10px;"/></a>
 
-
             </nav>
-
 
         </header>
 
@@ -62,6 +58,7 @@ if(logged_in() === false){
                 <th>Details</th>
             </tr>
             <?php
+                $id = $user_data['id'];
                 $result = getAssets($con, $user_data["id"]);
                 $i = 1;
                 while($row = $result->fetch_assoc()) {
@@ -73,17 +70,21 @@ if(logged_in() === false){
                     }
                     $i++;
                     echo "'>";
-                    echo "<td>" . $row["title"] . "</td>";
-                    echo "<td>" . $row["category"] . '</td>';
-                    echo '<td>'. $row['quantity'] . '</td>';
-                    echo '<td>' . $row['price'] . '</td>';
-                    echo '<td>' . $row['quantity']*$row['price'] . '</td>';
-                    echo '<td>' . $row['details'] . '</td>';
-                    echo "<td id='fixed-col'><img src='images/icons/edit.png' height=24/>";
-                    echo "<img src='images/icons/delete.ico' height=24/></td>";
+                    echo "<td style='text-align: center'>" . $row["title"] . "</td>";
+                    echo "<td style='text-align: center'>" . $row["category"] . '</td>';
+                    echo '<td style="text-align: center">' . $row['quantity'] . '</td>';
+                    echo '<td style="text-align: center">' . $row['price'] . '</td>';
+                    echo '<td style="text-align: center">' . $row['quantity'] * $row['price'] . '</td>';
+                    echo '<td style="text-align: center">' . $row['details'] . '</td>';
+                    echo "<td style='text-align: center'><a href=\"delete.php?id=".$row['id']."\"><img src='images/icons/delete.ico' height='24'/></a></td>";
+                    echo "<td style='text-align: center'><a href=\"update.php?id=".$row['id']."\"><img src='images/icons/edit.png' alt='' height='24'/></a></td>";
                     echo '</tr>';
-                }
+                    
+                    
+            }
+
             ?>
+
             </table>
            
         </div>

@@ -27,7 +27,7 @@
 
             if(empty($_POST['login']) === false){
 
-                 $email = $_POST['email'];
+                $email    = $_POST['email'];
                 $password = $_POST['password'];
 
                 $login = login($con,$email,$password);
@@ -78,8 +78,8 @@
                     $register_data = array(
 
                     'first_name' =>  $_POST['fname'],
-                    'last_name' =>  $_POST['lname'],
-                    'email'   =>  $_POST['email'],
+                    'last_name'  =>  $_POST['lname'],
+                    'email'      =>  $_POST['email'],
                     'password'   =>  $_POST['password']
 
                 );
