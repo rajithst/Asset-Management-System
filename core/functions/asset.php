@@ -29,9 +29,14 @@ function output_errors($errors) {
 }
 
 
-function update_data(){
+function update_assets($con,$update_data,$id){
+    $update = array();
+    foreach($update_data as $field=>$data){
+        $update[]= '`'. $field. '`=\''.$data.'\'';
+    }
 
-    
+    mysqli_query($con,"UPDATE `assets` SET" . implode(', ',$update) .  " WHERE `id`=$id");
+
 
 }
 

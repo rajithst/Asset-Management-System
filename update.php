@@ -65,15 +65,37 @@ if(logged_in() === false){
                     <th>Price</th>
                     <th>Details</th>
                 </tr>
-
-                <td><input style="text-align: center" type="text" value="<?php echo $asset_data['title'];?>"</td>
-                <td><input style="text-align: center" type="text" value="<?php echo $asset_data['category'];?>"</td>
-                <td><input style="text-align: center" type="text" value="<?php echo $asset_data['quantity'];?>"</td>
-                <td><input style="text-align: center" type="text" value="<?php echo $asset_data['price'];?>"</td>
-                <td><input style="text-align: center" type="text" value="<?php echo $asset_data['details'];?>"</td>
-
-                <td><a href="home.php"><div id="add-new">Update</div></a></td>
+                <form action="" method="post">
+                    <td><input style="text-align: center" type="text" value="<?php echo $asset_data['title'];?>" name="title"></td>
+                    <td><input style="text-align: center" type="text" value="<?php echo $asset_data['category'];?>" name="category"></td>
+                    <td><input style="text-align: center" type="number" value="<?php echo $asset_data['quantity'];?>" name="quantity"></td>
+                    <td><input style="text-align: center" type="number" value="<?php echo $asset_data['price'];?>" name="price"></td>
+                    <td><input style="text-align: center" type="text" value="<?php echo $asset_data['details'];?>" name="details"></td>
+                    <td><input type="submit" name="update" value="update"></td>
+                </form>
             </table>
+
+        <?php
+            if(isset($_POST['update'])===true and empty($_POST['update'])=== false){
+                $update_data = array(
+
+                    'title' => $_POST['title'],
+                    'category' => $_POST['category'],
+                    'quantity' => $_POST['quantity'],
+                    'details' => $_POST['details']
+                );
+
+
+                update_assets($con,$update_data,$id);
+                header('Location:home.php');
+                exit();
+
+                echo 'done';
+            }
+
+
+
+        ?>
 
     </div>
 
