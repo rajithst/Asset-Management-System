@@ -34,7 +34,7 @@ if(logged_in() === false){
         <nav>
 
 
-            <label for="email"> <?php echo $user_data['first_name']; ?>'s Profile </label>
+            <label for="email"> <?php echo $user_data['first_name']; ?></label>
 
             <a href="home.php"><input type="image" src="images/icons/home.png" title="Home" value="home " style="margin-left:10px;"/></a>
             <a href="<?php echo $user_data['first_name'];?>"><input type="image" src="images/icons/user.png" title="Profile" value="settings " style="margin-left:10px;"/></a>

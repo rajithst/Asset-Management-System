@@ -33,15 +33,12 @@ if(logged_in() === false){
             <nav>
 
 
-                    <label for="email">Welcome <?php echo $user_data['first_name']; ?> </label>
-
+                <label for="email"><?php echo $user_data['first_name']; ?> </label>
+                <a href="home.php"><input type="image" src="images/icons/home.png" title="Home" value="home " style="margin-left:10px;"/></a>
                 <a href="<?php echo $user_data['first_name'];?>"><input type="image" src="images/icons/user.png" name="setting" value="settings " style="margin-left:10px;font-weight:bold;"/></a>
                 <a href="logout.php"><input type="image" src="images/icons/logout.png" name="logout" value="Sign Out" style="margin-left:10px;font-weight:bold;"/></a>
 
-
             </nav>
-
-
         </header>
     <br><br>
 
@@ -68,14 +65,15 @@ if(logged_in() === false){
             }else {
 
             if (empty($_POST) === false and empty($errors)===true) {
-
+                $dt=date();
                 $asset_data = array(
-                    'userid' => $user_data['id'],
-                    'title' => $_POST['title'],
-                    'category' => $_POST['category'],
-                    'quantity' => $_POST['quantity'],
-                    'price' => $_POST['price'],
-                    'details' => $_POST['details']
+                    'userid'    => $user_data['id'],
+                    'title'     => $_POST['title'],
+                    /*'date'      => $dt,*/
+                    'category'  => $_POST['category'],
+                    'quantity'  => $_POST['quantity'],
+                    'price'     => $_POST['price'],
+                    'details'   => $_POST['details']
                 );
 
 
@@ -111,6 +109,7 @@ if(logged_in() === false){
                                 <option value='chair'>Chair</option>
                                 <option value='desk'>Desk</option>
                                 <option value='cupboad'>Cupboard</option>
+                                <option value='machinery and equipment'>machinery and equipment</option>
                             </select>
                     </tr>
                     <tr>
@@ -144,4 +143,4 @@ if(logged_in() === false){
 
 <?php } ?>
 </body>
-</head>
+</html>

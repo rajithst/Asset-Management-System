@@ -1,7 +1,7 @@
 <?php
 
 function user_data($con,$id){
-    //$data =array();
+    $data =array();
     $id= (int)$id;
 
     $get_num = func_num_args();
@@ -18,8 +18,6 @@ function user_data($con,$id){
     }
 
 }
-
-
 
 function logged_in(){
 
@@ -58,9 +56,6 @@ function register_user($con,$register_data){
     mysqli_query($con,"INSERT INTO `users`($fields) VALUES ($data)");
 
 }
-
-
-
 
 
 ?>
