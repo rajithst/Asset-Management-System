@@ -101,11 +101,11 @@ if(logged_in() === true){
             ?>
             <h1>Sign Up</h1>
          <form action="" method="post">
-             <input id="text_input" type="text" name="fname" placeholder="First name" required> <br />
+             <input id="text_input" type="text" name="fname" placeholder="First name" required maxlength="14"> <br />
 
-             <input id="text_input" type="text" name="lname" placeholder="Last name" required><br />
+             <input id="text_input" type="text" name="lname" placeholder="Last name" required maxlength="14"><br />
 
-             <input id="text_input" type="text" name="email" placeholder="Email" required><br />
+             <input id="text_input" type="text" name="email" placeholder="Email" required maxlength="20"><br />
 
              <input id="text_input" type="password" name="password" placeholder="Password" required><br />
 
