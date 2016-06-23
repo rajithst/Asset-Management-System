@@ -18,7 +18,26 @@ if(logged_in() === false){
     <link rel="stylesheet" type="text/css" media="screen" href="css/screen.css">
     <link rel='stylesheet' href='css/input_form.css'>
 
+    <script>
+        function validateForm() {
+            var quantity = document.forms["add-asset"]["quantity"].value;
+            if (!isnum(quantity)) {
+                alert("Invalid quantity");
+                return false;
+            }
 
+            var price = document.forms["add-asset"]["price"].value;
+            if (!isnum(price)) {
+                alert("Invalid price");
+                return false;
+            }
+        }
+
+        // Returns true if @val contains only numbers. false otherwise.
+        function isnum(val) {
+            return /^[0-9]+$/.test(val.replace('.',''));    // competible with floating point values
+        }
+    </script>
 </head>
 <body>
 <div id="page">
@@ -93,13 +112,13 @@ if(logged_in() === false){
 
 
     <div id='add-item-form'>
-            <form method='POST' action='add.php'>
+            <form name="add-asset" method='POST' action='add.php' onsubmit="return validateForm()">
                 <table border=0>
                     <tr>
                         <td id='label-col'>
                             <label>Title*</label> </td>
                         <td id='input-col'>
-                            <input type='text' name='title'> </td>
+                            <input type='text' name='title' required maxlength=30> </td>
                     </tr>
                     <tr>
                         <td id='label-col'>
@@ -116,13 +135,13 @@ if(logged_in() === false){
                         <td id='label-col'>
                             <label>Quantity*</label></td>
                         <td id='input-col'>
-                            <input type='text' name='quantity'></td>
+                            <input type='text' name='quantity' required></td>
                     </tr>
                     <tr>
                         <td id='label-col'>
                             <label>Price*</label> </td>
                         <td id='input-col'>
-                            <input type='text' name='price'> </td>
+                            <input type='text' name='price' required> </td>
                     </tr>
                     <tr>
                         <td id='label-col'>
