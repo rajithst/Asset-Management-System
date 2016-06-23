@@ -16,6 +16,15 @@ if(logged_in() === true){
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" type="text/css" media="screen" href="css/screen.css">
     
+    <script>
+        function validateForm() {
+            var email = document.forms["registration"]["email"].value;
+            if (email.indexOf("@") == -1) {
+                alert("Enter valid email address");
+                return false;
+            }
+        }
+    </script>
 
 </head>
 <body>
@@ -100,7 +109,7 @@ if(logged_in() === true){
 
             ?>
             <h1>Sign Up</h1>
-         <form action="" method="post">
+         <form name="registration" action="" method="post" onsubmit="return validateForm()">
              <input id="text_input" type="text" name="fname" placeholder="First name" required maxlength="14"> <br />
 
              <input id="text_input" type="text" name="lname" placeholder="Last name" required maxlength="14"><br />
