@@ -19,8 +19,8 @@ if(logged_in() === true){
     <script>
         function validateForm() {
             var email = document.forms["registration"]["email"].value;
-            if (email.indexOf("@") == -1) {
-                alert("Enter valid email address");
+            if (!validateEmail(email)) {
+                alert("Enter a valid email address");
                 return false;
             }
             var password = document.forms["registration"]["password"].value;
@@ -28,6 +28,10 @@ if(logged_in() === true){
                 alert("Password must have at least 6 characters");
                 return false;
             }
+        }
+        function validateEmail(email) {
+            var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(email);
         }
     </script>
 
