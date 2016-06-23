@@ -23,6 +23,11 @@ if(logged_in() === true){
                 alert("Enter valid email address");
                 return false;
             }
+            var password = document.forms["registration"]["password"].value;
+            if (password.length < 6) {
+                alert("Password must have at least 6 characters");
+                return false;
+            }
         }
     </script>
 
