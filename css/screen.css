@@ -166,3 +166,18 @@ header label {
     width:100px;
     float: left;
 }
+
+.profile{
+    width:100%;
+    min-height:100%;
+    position: relative;
+
+}
+
+.profile aside {
+    width:33.3%;
+    float: left;
+
+
+}
+

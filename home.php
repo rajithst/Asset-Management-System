@@ -30,10 +30,10 @@ if(logged_in() === false){
             <a title="asset" href="home.php">
                 <div class="logo">
                     <img src="images/logo.png" height="66px" weight="66px" />
-                    <span id="title">Asset Management System</span>
-                </div>
             </a>
 
+            <span id="title">Asset Management System</span>
+    </div>
             <nav>
                     <label for="email">Welcome <?php echo $user_data['first_name']; ?> </label>
 
@@ -51,7 +51,7 @@ if(logged_in() === false){
             <table border=0>
             <tr>
                 <th>Title</th>
-                <!--<th>Data & Time</th>-->
+                <!--<th>Data & Time</th>-->!
                 <th>Category</th>
                 <th>Quantity</th>
                 <th>Price</th>

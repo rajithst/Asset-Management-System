@@ -11,6 +11,8 @@ if(logged_in() === false){
 if(isset($_GET['first_name'])=== true and empty($_GET['first_name'])===false){
     $first_name= $_GET['first_name'];
 
+
+
 }?>
 
 <!DOCTYPE html>
@@ -50,8 +52,75 @@ if(isset($_GET['first_name'])=== true and empty($_GET['first_name'])===false){
 
         </nav>
     </header>
+
+    <?php
+
+    $id = $user_data['id'];
+    $total=total($con,$id);
+
+
+    ?>
+
+
+    <div class="profile">
+
+       <center><h1>USER PROFILE</h1></center>
+
+       <aside>
+
+           <div class="content">
+                image
+           </div>
+
+       </aside>
+
+        <aside>
+
+            <div class="content" style="text-align: center;">
+                    <h2>First Name :</h2>
+                <br>
+                    <h2>Last Name :</h2>
+                <br>
+                    <h2>Email :</h2>
+                <br>
+                    <h2>Total Assets :</h2>
+            </div>
+
+        </aside>
+
+        <aside>
+
+            <div class="content">
+                    <h2><?php echo $user_data['first_name'];?></h2>
+                <br>
+
+                <h2><?php echo $user_data['last_name'];?></h2>
+                <br>
+
+                <h2><?php echo $user_data['email'];?></h2>
+                <br>
+
+                <h2><?php echo $total; ?></h2>
+
+            </div>
+
+            <a href="settings.php"><div id="update">Update Your Profile</div></a>
+
+        </aside>
+
+
+
+
+    </div>
+
+
+
     <hr />
-    <span id="footer">&#169; 2016</span>
+
+
+        <span id="footer">&#169; 2016</span>
+
+
 
 </div>
 

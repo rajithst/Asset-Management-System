@@ -50,8 +50,9 @@ if(logged_in() === false){
     <div class="assets">
 
         <div class="block" style="width: 40%;">
-            <div class="image" style="border:1px solid #000000;width: 70%;height: 50%;">
-                hhfhgf
+            <div class="image" style="border:1px solid #000000;width: 70%;height: 70%;">
+
+
             </div>
         </div>
 
@@ -74,10 +75,6 @@ if(logged_in() === false){
                 <input id="text_input" type="password" name="password" placeholder="Password"><br><br>
 
                 <input type="submit" name="register" value="Update" style="font-weight:bold;"> <input type="reset" name="reset" value="Reset" style="font-weight:bold;">
-
-
-
-
 
 
             </form>

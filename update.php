@@ -91,7 +91,6 @@ if(logged_in() === false){
                 header('Location:home.php');
                 exit();
 
-                echo 'done';
             }
 
 

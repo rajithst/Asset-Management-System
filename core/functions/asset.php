@@ -19,6 +19,14 @@ function asset_data($con,$id){
 
 }
 
+
+function total($con,$id){
+    $sql= "SELECT * FROM `assets` WHERE `userid`=$id";
+    $res = mysqli_query($con,$sql);
+    $tot= mysqli_num_rows($res);
+    return $tot;
+}
+
 function getAssets($con, $userid) {
     $sql = "SELECT * FROM assets WHERE userid=$userid";
     return $con->query($sql);
