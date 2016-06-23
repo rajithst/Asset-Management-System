@@ -48,44 +48,87 @@ if(logged_in() === false){
     </header>
 
     <div class="assets">
-
-        <div class="block" style="width: 40%;">
-            <div class="image" style="border:1px solid #000000;width: 70%;height: 70%;">
+        <?php
 
 
-            </div>
+        if(empty($_POST['update'])===false) {
+
+            $reuired_fields = array('first_name', 'last_name', 'password');
+            foreach ($_POST as $key => $value) {
+                if (empty($value) && in_array($key, $reuired_fields) === true) {
+                    $errors[]='Fields marked with asterisk are required';
+                    break 1;
+                }
+            }
+        }
+        ?>
+
+
+        <div class="block">
+
+            <center><h2>Profile Settings</h2></center>
+
+            <?php
+
+
+            if (isset($_GET['success']) && empty($_GET['success'])) {
+                echo '<center> updated successfully!!!! </center><br>';
+                echo '<center><a href="logout.php">Log Again</a></center>';
+            }else {
+
+        if (empty($_POST['update']) === false and empty($errors)===true) {
+
+                $update_user = array(
+
+                    'first_name'=> $_POST['fname'],
+                    'last_name'=> $_POST['lname'],
+                    'password'=> $_POST['password']
+
+                );
+
+
+            $id = $user_data['id'];
+            update_profile($con,$update_user,$id);
+            header('Location:settings.php?success');
+            exit();
+
+
+            }else if(empty($errors)===false){
+
+                echo '<center>'.output_errors($errors).'</center>';
+
+            }
+
+
+            ?>
+
         </div>
 
-        <div class="block" style="margin: 130px 0px 0px 65px;width: 50%; height: 60%;">
 
-            <h2>Profile Settings</h2>
+            <form action="" method="post" style="text-align: center;">
 
-            <form action="">
-
-                <label for="">First Name</label>
+                <label for="">First Name*</label>
                 <input id="text_input" type="text" name="fname" placeholder="First name"> <br><br>
 
-                <label for="">Last Name</label>
+                <label for="">Last Name*</label>
                 <input id="text_input" type="text" name="lname" placeholder="Last name"><br><br>
 
-                <label for="">Pasword</label>
+                <label for="">Password*</label>
                 <input id="text_input" type="password" name="password" placeholder="Password"><br><br>
 
-                <label for="">Pasword again</label>
-                <input id="text_input" type="password" name="password" placeholder="Password"><br><br>
-
-                <input type="submit" name="register" value="Update" style="font-weight:bold;"> <input type="reset" name="reset" value="Reset" style="font-weight:bold;">
+                <input type="submit" name="update" value="Update" style="font-weight:bold;"> <input type="reset" name="reset" value="Reset" style="font-weight:bold;">
 
 
             </form>
 
-        </div>
 
 
 
-    </div>
 
 
+            </div>
+
+<?php } ?>
 
     <hr />
     <span id="footer">&#169; 2016</span>

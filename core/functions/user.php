@@ -57,5 +57,18 @@ function register_user($con,$register_data){
 
 }
 
+function update_profile($con,$update_user,$id){
+
+    $update = array();
+    $update_user['password']= md5($update_user['password']);
+    foreach($update_user as $field=>$data) {
+
+        $update[] = '`' . $field . '`=\'' . $data . '\'';
+
+        mysqli_query($con, "UPDATE `users` SET" . implode(', ', $update) . " WHERE `id`=$id");
+
+
+    }
+}
 
 ?>
