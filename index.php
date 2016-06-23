@@ -16,6 +16,24 @@ if(logged_in() === true){
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" type="text/css" media="screen" href="css/screen.css">
     
+    <script>
+        function validateForm() {
+            var email = document.forms["registration"]["email"].value;
+            if (!validateEmail(email)) {
+                alert("Enter a valid email address");
+                return false;
+            }
+            var password = document.forms["registration"]["password"].value;
+            if (password.length < 6) {
+                alert("Password must have at least 6 characters");
+                return false;
+            }
+        }
+        function validateEmail(email) {
+            var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(email);
+        }
+    </script>
 
 </head>
 <body>
@@ -100,7 +118,7 @@ if(logged_in() === true){
 
             ?>
             <h1>Sign Up</h1>
-         <form action="" method="post">
+         <form name="registration" action="" method="post" onsubmit="return validateForm()">
              <input id="text_input" type="text" name="fname" placeholder="First name" required maxlength="14"> <br />
 
              <input id="text_input" type="text" name="lname" placeholder="Last name" required maxlength="14"><br />
