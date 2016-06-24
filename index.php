@@ -15,7 +15,7 @@ if(logged_in() === true){
     <title>Asset Management System</title>
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" type="text/css" media="screen" href="css/screen.css">
-    
+    <script src="js/activation.js"></script>
     <script>
         function validateForm() {
             var email = document.forms["registration"]["email"].value;
@@ -119,13 +119,13 @@ if(logged_in() === true){
             ?>
             <h1>Sign Up</h1>
          <form name="registration" action="" method="post" onsubmit="return validateForm()">
-             <input id="text_input" type="text" name="fname" placeholder="First name" required maxlength="14"> <br />
+             <input id="text_input" type="text" name="fname" placeholder="First name" required maxlength="14" oninput="activate('registration', this, 'lname')"> <br />
 
-             <input id="text_input" type="text" name="lname" placeholder="Last name" required maxlength="14"><br />
+             <input id="text_input" type="text" name="lname" placeholder="Last name" required maxlength="14" disabled oninput="activate('registration', this, 'email')"><br />
 
-             <input id="text_input" type="text" name="email" placeholder="Email" required maxlength="20"><br />
+             <input id="text_input" type="text" name="email" placeholder="Email" required maxlength="20" disabled oninput="activate('registration', this, 'password')"><br />
 
-             <input id="text_input" type="password" name="password" placeholder="Password" required><br />
+             <input id="text_input" type="password" name="password" placeholder="Password" disabled><br />
 
              <input type="submit" name="register" value="Create account" style="font-weight:bold;">
              
