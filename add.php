@@ -17,7 +17,7 @@ if(logged_in() === false){
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" type="text/css" media="screen" href="css/screen.css">
     <link rel='stylesheet' href='css/input_form.css'>
-
+    <script src="js/activation.js"></script>
     <script>
         function validateForm() {
             var quantity = document.forms["add-asset"]["quantity"].value;
@@ -118,7 +118,7 @@ if(logged_in() === false){
                         <td id='label-col'>
                             <label>Title*</label> </td>
                         <td id='input-col'>
-                            <input type='text' name='title' required maxlength=30> </td>
+                            <input type='text' name='title' required maxlength=30 oninput="activate('add-asset', this, 'quantity')"> </td>
                     </tr>
                     <tr>
                         <td id='label-col'>
@@ -135,19 +135,19 @@ if(logged_in() === false){
                         <td id='label-col'>
                             <label>Quantity*</label></td>
                         <td id='input-col'>
-                            <input type='text' name='quantity' required></td>
+                            <input type='text' name='quantity' required disabled oninput="activate('add-asset', this, 'price')"></td>
                     </tr>
                     <tr>
                         <td id='label-col'>
                             <label>Price*</label> </td>
                         <td id='input-col'>
-                            <input type='text' name='price' required> </td>
+                            <input type='text' name='price' required disabled oninput="activate('add-asset', this, 'details')"> </td>
                     </tr>
                     <tr>
                         <td id='label-col'>
                             <label>Additional details</label> </td>
                         <td id='input-col'>
-                            <textarea name='details' rows='10'></textarea> </td>
+                            <textarea name='details' rows='10' disabled></textarea> </td>
                     </tr>                    
                 </table> 
                 <input type='submit' value='Add' name='add_asset'>
