@@ -66,17 +66,8 @@ if(isset($_GET['first_name'])=== true and empty($_GET['first_name'])===false){
 
        <center><h1>USER PROFILE</h1></center>
 
-       <aside>
 
-           <div class="content">
-                image
-           </div>
-
-       </aside>
-
-        <aside>
-
-            <div class="content" style="text-align: center;">
+         <div class="content">
                     <h2>First Name :</h2>
                 <br>
                     <h2>Last Name :</h2>
@@ -84,13 +75,11 @@ if(isset($_GET['first_name'])=== true and empty($_GET['first_name'])===false){
                     <h2>Email :</h2>
                 <br>
                     <h2>Total Assets :</h2>
-            </div>
 
-        </aside>
+        </div>
 
-        <aside>
 
-            <div class="content">
+            <div class="content" >
                     <h2><?php echo $user_data['first_name'];?></h2>
                 <br>
 
@@ -104,9 +93,8 @@ if(isset($_GET['first_name'])=== true and empty($_GET['first_name'])===false){
 
             </div>
 
-            <a href="settings.php"><div id="update">Update Your Profile</div></a>
+        <a href="settings.php"><div id="report">Edit Profile</div></a>
 
-        </aside>
 
 
 

@@ -166,14 +166,33 @@ header label {
 .profile{
     width:100%;
     min-height:100%;
+    overflow: hidden;
     position: relative;
 
 }
 
-.profile aside {
-    width:33.3%;
+.profile .content{
+
+    width: 46%;
+    margin: 0 10px;
     float: left;
-
-
+    text-align: center;
 }
 
+.profile #report{
+
+    margin:15% 35% 0px 35%;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    padding: 5px;
+    color: black;
+    border: 1px solid #4CAF50;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.profile #report:hover{
+    background-color: #4CAF50;
+    color: white;
+}

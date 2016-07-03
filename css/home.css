@@ -8,6 +8,7 @@ table {
     font-size: 16px;
     width: 100%;
     border-collapse: collapse;
+
 }
 
 th {
@@ -25,7 +26,7 @@ table #fixed-col {
 }
 
 .content-center #topic {
-    float: left;
+    text-align: center;
     font-size: 28px;
     font-weight: bold;
 }
@@ -43,6 +44,24 @@ table #fixed-col {
 }
 
 .content-center #add-new:hover{
+    background-color: #4CAF50;
+    color: white;
+}
+
+
+.content-center #report {
+    margin: 5% 20%;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    padding: 5px;
+    color: black;
+    border: 1px solid #4CAF50;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.content-center #report:hover{
     background-color: #4CAF50;
     color: white;
 }

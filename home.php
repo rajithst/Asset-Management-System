@@ -46,12 +46,11 @@ if(logged_in() === false){
         </header>
 
         <div class="content-center">
-            <div id="topic">Current assets</div>
+            <div id="topic">Current Assets</div>
             <a href="add.php"><div id="add-new">Add new asset</div></a>
             <table border=0>
             <tr>
                 <th>Title</th>
-                <!--<th>Data & Time</th>-->!
                 <th>Category</th>
                 <th>Quantity</th>
                 <th>Price</th>
@@ -72,7 +71,6 @@ if(logged_in() === false){
                     $i++;
                     echo "'>";
                     echo "<td style='text-align: center'>" . $row["title"] . "</td>";
-                    /*echo "<td style='text-align: center'>" . $row['date'] . "</td>";*/
                     echo "<td style='text-align: center'>" . $row["category"] . '</td>';
                     echo '<td style="text-align: center">' . $row['quantity'] . '</td>';
                     echo '<td style="text-align: center">' . $row['price'] . '</td>';
@@ -81,14 +79,18 @@ if(logged_in() === false){
                     echo "<td style='text-align: center'><a href=\"delete.php?id=".$row['id']."\"><img src='images/icons/delete.ico' height='24'/></a></td>";
                     echo "<td style='text-align: center'><a href=\"update.php?id=".$row['id']."\"><img src='images/icons/edit.png' alt='' height='24'/></a></td>";
                     echo '</tr>';
+
+
                     
                     
             }
 
             ?>
 
+
+
             </table>
-           
+            <a href="report.php"><div id="report">Generate Report</div></a>
         </div>
         
     </div>

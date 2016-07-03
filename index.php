@@ -57,10 +57,12 @@ if(logged_in() === true){
                 $password = $_POST['password'];
 
                 $login = login($con,$email,$password);
-                if($login === false){
+                if($login === false){?>
+            <script>
+                alert('Your email and password combination is wrong');
 
-                    echo 'wrong';
-
+            </script>
+                   <?php
                 }else{
 
                     $_SESSION['id']= $login;
@@ -122,7 +124,6 @@ if(logged_in() === true){
              <input id="text_input" type="text" name="fname" placeholder="First name" required maxlength="14" oninput="activate('registration', this, 'lname')"> <br />
 
              <input id="text_input" type="text" name="lname" placeholder="Last name" required maxlength="14" disabled oninput="activate('registration', this, 'email')"><br />
-
              <input id="text_input" type="text" name="email" placeholder="Email" required maxlength="20" disabled oninput="activate('registration', this, 'password')"><br />
 
              <input id="text_input" type="password" name="password" placeholder="Password" disabled><br />
