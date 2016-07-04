@@ -54,4 +54,48 @@ function delete_data($con,$id){
     $query = "DELETE FROM `assets` WHERE `id`= $id";
     mysqli_query($con,$query);
 }
+
+
+function getCount($con,$category,$id){
+    $sql = "SELECT * FROM `assets` WHERE `category`='$category' AND userid='$id'";
+    $res = mysqli_query($con,$sql);
+
+    if(mysqli_num_rows($res)>1) {
+        $count=0;
+        while ($row = mysqli_fetch_assoc($res)) {
+            $count = $count+$row['quantity'];
+
+        }
+
+        return $count;
+
+    } else if(mysqli_num_rows($res)==1){
+        $row= mysqli_fetch_assoc($res);
+       return $row['quantity'];
+    } else {
+        return 0;
+    }
+}
+
+function getPrice($con,$category,$id){
+
+    $sql = "SELECT * FROM `assets` WHERE `category`='$category' AND userid='$id'";
+    $res = mysqli_query($con,$sql);
+    if(mysqli_num_rows($res)>1) {
+        $price=0;
+        while ($row = mysqli_fetch_assoc($res)) {
+            $price = $price + ($row['price']*$row['quantity']);
+        }
+
+        return $price;
+
+    } else if(mysqli_num_rows($res)==1){
+        $row= mysqli_fetch_assoc($res);
+        return $row['quantity']*$row['price'];
+    } else {
+        return 0;
+    }
+}
+
+
 ?>

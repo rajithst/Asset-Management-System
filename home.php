@@ -73,8 +73,8 @@ if(logged_in() === false){
                     echo "<td style='text-align: center'>" . $row["title"] . "</td>";
                     echo "<td style='text-align: center'>" . $row["category"] . '</td>';
                     echo '<td style="text-align: center">' . $row['quantity'] . '</td>';
-                    echo '<td style="text-align: center">' . $row['price'] . '</td>';
-                    echo '<td style="text-align: center">' . $row['quantity'] * $row['price'] . '</td>';
+                    echo '<td style="text-align: center">' .'Rs '. $row['price'] . '</td>';
+                    echo '<td style="text-align: center">'.'Rs '.$row['quantity'] * $row['price'] . '</td>';
                     echo '<td style="text-align: center">' . $row['details'] . '</td>';
                     echo "<td style='text-align: center'><a href=\"delete.php?id=".$row['id']."\"><img src='images/icons/delete.ico' height='24'/></a></td>";
                     echo "<td style='text-align: center'><a href=\"update.php?id=".$row['id']."\"><img src='images/icons/edit.png' alt='' height='24'/></a></td>";
