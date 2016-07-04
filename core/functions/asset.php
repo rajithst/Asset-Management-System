@@ -72,7 +72,8 @@ function getCount($con,$category,$id){
     } else if(mysqli_num_rows($res)==1){
         $row= mysqli_fetch_assoc($res);
        return $row['quantity'];
-    } else {
+
+    }else {
         return 0;
     }
 }
@@ -92,6 +93,7 @@ function getPrice($con,$category,$id){
     } else if(mysqli_num_rows($res)==1){
         $row= mysqli_fetch_assoc($res);
         return $row['quantity']*$row['price'];
+
     } else {
         return 0;
     }
