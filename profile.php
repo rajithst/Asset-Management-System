@@ -106,10 +106,6 @@ if(isset($_GET['first_name'])=== true and empty($_GET['first_name'])===false){
     <hr />
 
 
-        <span id="footer">&#169; 2016</span>
-
-
-
 </div>
 
 

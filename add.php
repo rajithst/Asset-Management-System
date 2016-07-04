@@ -54,7 +54,7 @@ if(logged_in() === false){
 
                 <label for="email"><?php echo $user_data['first_name']; ?> </label>
                 <a href="home.php"><input type="image" src="images/icons/home.png" title="Home" value="home " style="margin-left:10px;"/></a>
-                <a href="<?php echo $user_data['first_name'];?>"><input type="image" src="images/icons/user.png" name="setting" value="settings " style="margin-left:10px;font-weight:bold;"/></a>
+                <a href="profile.php"><input type="image" src="images/icons/user.png" name="setting" value="settings " style="margin-left:10px;font-weight:bold;"/></a>
                 <a href="logout.php"><input type="image" src="images/icons/logout.png" name="logout" value="Sign Out" style="margin-left:10px;font-weight:bold;"/></a>
 
             </nav>
@@ -154,8 +154,6 @@ if(logged_in() === false){
             </form>
         </div>
 
-        <hr />
-        <span id="footer">&#169; 2016</span>
 
     </div>
 
