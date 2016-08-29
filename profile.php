@@ -63,9 +63,9 @@ if(isset($_GET['first_name'])=== true and empty($_GET['first_name'])===false){
 
 
     <div class="profile">
-
+        <br><br>
        <center><h1>USER PROFILE</h1></center>
-
+        <br><br>
 
          <div class="content">
                     <h2>First Name :</h2>

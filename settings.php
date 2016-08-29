@@ -65,7 +65,7 @@ if(logged_in() === false){
 
 
         <div class="block">
-
+            <br><br>
             <center><h2>Profile Settings</h2></center>
 
             <?php
