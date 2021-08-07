@@ -16,6 +16,7 @@ if(logged_in() === true){
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" type="text/css" media="screen" href="css/screen.css">
     <script src="js/activation.js"></script>
+    <script src="js/tabletoexcel.js"></script>
     <script>
         function validateForm() {
             var email = document.forms["registration"]["email"].value;

@@ -92,7 +92,8 @@ if(logged_in() === false){
                     'category'  => $_POST['category'],
                     'quantity'  => $_POST['quantity'],
                     'price'     => $_POST['price'],
-                    'details'   => $_POST['details']
+                    'details'   => $_POST['details'],
+                    'status'   => 1
                 );
 
 

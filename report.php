@@ -21,10 +21,20 @@ if(logged_in() === false){
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" type="text/css" media="screen" href="css/screen.css">
     <link rel="stylesheet" href="css/home.css" />
+    <script src="js/activation.js"></script>
 
 </head>
 <body>
-
+<script type="text/javascript">
+    function exportF(elem) {
+      var table = document.getElementById("table");
+      var html = table.outerHTML;
+      var url = 'data:application/vnd.ms-excel,' + escape(html); // Set your html table into url 
+      elem.setAttribute("href", url);
+      elem.setAttribute("download", "export.xls"); // Choose the file name
+      return false;
+}
+</script>
 
 <div id="page">
     <header>
@@ -53,7 +63,7 @@ $asset_data=getAssets($con,$id);
 
 <div class="content-center">
     <div id="topic"> General Report</div>
-<table border=0>
+<table border=0 id="table">
     <tr>
 
         <th>Category</th>
@@ -62,6 +72,9 @@ $asset_data=getAssets($con,$id);
 
     </tr>
     <?php
+    $fileName = "members-data_" . date('Y-m-d') . ".xls"; 
+    $fields = array('Category','quantity','Total Price'); 
+    $excelData = implode("\t", array_values($fields)) . "\n"; 
     $id = $user_data['id'];
     $cat= array(
         'chair',
@@ -77,21 +90,23 @@ $asset_data=getAssets($con,$id);
         $tcount= $tcount+$count;
         $price = getPrice($con,$values,$id);
         $tprice= $tprice+$price;
+        $lineData = array($cat, $count,$price); 
+        $excelData .= implode("\t", array_values($lineData)) . "\n"; 
         ?><tr><?php
         echo "<td style='text-align: center'>" . $values . "</td>";
         echo "<td style='text-align: center'>" .$count. "</td>";
         echo "<td style='text-align: center'>".'Rs '.$price."</td>";
 
-
         }?>
     </tr>
-
 </table>
     <div class="summary" style="margin: 10% auto; text-align: center">
     <h2>TOTAL ASSETS = <?php echo $tcount; ?></h2>
     <h2>TOTAL ASSETS WORTH = Rs. <?php echo $tprice;?>/=</h2>
-
+    <button id="btnExport" onclick="exportF(this)">EXPORT REPORT</button>
     </div>
+   
+
 
 
 
@@ -99,3 +114,5 @@ $asset_data=getAssets($con,$id);
 
 </body>
 </html>
+
+

@@ -47,7 +47,9 @@ if(logged_in() === false){
 
         <div class="content-center">
             <div id="topic">Current Assets</div>
+            <a href="writeoffassets.php"><div id="add-new">Writeoff Assets</div></a>
             <a href="add.php"><div id="add-new">Add new asset</div></a>
+
             <table border=0>
             <tr>
                 <th>Title</th>
@@ -76,8 +78,9 @@ if(logged_in() === false){
                     echo '<td style="text-align: center">' .'Rs '. $row['price'] . '</td>';
                     echo '<td style="text-align: center">'.'Rs '.$row['quantity'] * $row['price'] . '</td>';
                     echo '<td style="text-align: center">' . $row['details'] . '</td>';
-                    echo "<td style='text-align: center'><a href=\"delete.php?id=".$row['id']."\"><img src='images/icons/delete.ico' height='24'/></a></td>";
+                    echo "<td style='text-align: center'><a onClick=\"javascript: return confirm('Please confirm deletion');\" href=\"delete.php?id=".$row['id']."\"><img src='images/icons/delete.ico' height='24'/></a></td>";
                     echo "<td style='text-align: center'><a href=\"update.php?id=".$row['id']."\"><img src='images/icons/edit.png' alt='' height='24'/></a></td>";
+                    echo "<td style='text-align: center'><a onClick=\"javascript: return confirm('Please confirm Write off');\" href=\"writeoff.php?id=".$row['id']."\">Write Off</a></td>";
                     echo '</tr>';
 
 

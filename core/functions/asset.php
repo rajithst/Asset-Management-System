@@ -27,7 +27,7 @@ function total($con,$id){
 }
 
 function getAssets($con, $userid) {
-    $sql = "SELECT * FROM assets WHERE userid=$userid";
+    $sql = "SELECT * FROM assets WHERE userid=$userid AND status=1";
     $res = mysqli_query($con,$sql);
     return $con->query($sql);
 }
@@ -52,6 +52,12 @@ function update_assets($con,$update_data,$id){
 function delete_data($con,$id){
 
     $query = "DELETE FROM `assets` WHERE `id`= $id";
+    mysqli_query($con,$query);
+}
+
+function write_data($con,$id){
+
+    $query = "UPDATE `assets` SET `status`=0 WHERE `id`= $id";
     mysqli_query($con,$query);
 }
 
