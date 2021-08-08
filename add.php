@@ -84,16 +84,15 @@ if(logged_in() === false){
             }else {
 
             if (empty($_POST) === false and empty($errors)===true) {
-                $dt=date();
+                
                 $asset_data = array(
                     'userid'    => $user_data['id'],
                     'title'     => $_POST['title'],
-                    /*'date'      => $dt,*/
+                    'add_date'      => $_POST['add_date'],
                     'category'  => $_POST['category'],
                     'quantity'  => $_POST['quantity'],
                     'price'     => $_POST['price'],
-                    'details'   => $_POST['details'],
-                    'status'   => 1
+                    'details'   => $_POST['details']
                 );
 
 
@@ -131,6 +130,12 @@ if(logged_in() === false){
                                 <option value='cupboad'>Cupboard</option>
                                 <option value='machinery and equipment'>machinery and equipment</option>
                             </select>
+                    </tr>
+                    <tr>
+                        <td id='label-col'>
+                            <label>Date*</label></td>
+                        <td id='input-col'>
+                            <input type='date' name='add_date' required value="<?php echo date('Y-m-d'); ?>"></td>
                     </tr>
                     <tr>
                         <td id='label-col'>

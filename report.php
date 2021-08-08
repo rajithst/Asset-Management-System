@@ -63,7 +63,8 @@ $status=1;
 if($mode=="wo"){
     $status = 0;
 }
-$asset_data=getAssets($con,$id,$status);
+$asset_data=getAssets($con,$id);
+
 ?>
 
 <div class="content-center">

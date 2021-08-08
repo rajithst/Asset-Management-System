@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Aug 08, 2021 at 03:08 AM
+-- Generation Time: Aug 08, 2021 at 07:28 AM
 -- Server version: 5.7.32
 -- PHP Version: 7.4.16
 
@@ -35,16 +35,18 @@ CREATE TABLE `assets` (
   `quantity` int(11) NOT NULL,
   `price` float NOT NULL,
   `details` varchar(1000) DEFAULT NULL,
-  `status` int(11) NOT NULL DEFAULT '1'
+  `writeoff_quantity` int(11) NOT NULL DEFAULT '0',
+  `add_date` date NOT NULL,
+  `writeoff_date` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `assets`
 --
 
-INSERT INTO `assets` (`id`, `userid`, `title`, `category`, `quantity`, `price`, `details`, `status`) VALUES
-(4, 1, 'mychair', 'chair', 1, 22, '222', 1),
-(6, 1, 'mychair', 'chair', 1, 1500, 'wqqw', 0);
+INSERT INTO `assets` (`id`, `userid`, `title`, `category`, `quantity`, `price`, `details`, `writeoff_quantity`, `add_date`, `writeoff_date`) VALUES
+(8, 1, 'mychair', 'chair', 10, 1500, '', 2, '2021-08-08', '2021-08-08'),
+(9, 1, 'desk', 'desk', 5, 600, '', 2, '2021-08-08', '2021-08-08');
 
 -- --------------------------------------------------------
 
@@ -91,7 +93,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `assets`
 --
 ALTER TABLE `assets`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `users`

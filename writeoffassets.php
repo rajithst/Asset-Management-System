@@ -51,6 +51,7 @@ if(logged_in() === false){
 
             <table border=0>
             <tr>
+                <th>Writeoff Date</th>
                 <th>Title</th>
                 <th>Category</th>
                 <th>Quantity</th>
@@ -60,26 +61,31 @@ if(logged_in() === false){
             </tr>
             <?php
                 $id = $user_data['id'];
-                $result = getWriteOffAssets($con, $user_data["id"]);
+                $result = getAssets($con, $user_data["id"]);
                 $i = 1;
                 while($row = $result->fetch_assoc()) {
-                    echo "<tr style='background-color:";
-                    if ($i % 2 == 0) {
-                        echo "#f2f2f2";
-                    } else {
-                        echo "white";
+                    if($row["writeoff_quantity"]>0){
+
+                        echo "<tr style='background-color:";
+                        if ($i % 2 == 0) {
+                            echo "#f2f2f2";
+                        } else {
+                            echo "white";
+                        }
+                        $i++;
+                        echo "'>";
+                        echo "<td style='text-align: center'>" . $row["writeoff_date"] . "</td>";
+                        echo "<td style='text-align: center'>" . $row["title"] . "</td>";
+                        echo "<td style='text-align: center'>" . $row["category"] . '</td>';
+                        echo '<td style="text-align: center">' . $row['writeoff_quantity'] . '</td>';
+                        echo '<td style="text-align: center">' .'Rs '. $row['price'] . '</td>';
+                        echo '<td style="text-align: center">'.'Rs '.$row['writeoff_quantity'] * $row['price'] . '</td>';
+                        echo '<td style="text-align: center">' . $row['details'] . '</td>';
+                        echo "<td style='text-align: center'><a onClick=\"javascript: return confirm('Please confirm deletion?');\" href=\"writeoffdelete.php?id=".$row['id']."\"><img src='images/icons/delete.ico' height='24'/></a></td>";
+                        
+                        echo '</tr>';
                     }
-                    $i++;
-                    echo "'>";
-                    echo "<td style='text-align: center'>" . $row["title"] . "</td>";
-                    echo "<td style='text-align: center'>" . $row["category"] . '</td>';
-                    echo '<td style="text-align: center">' . $row['quantity'] . '</td>';
-                    echo '<td style="text-align: center">' .'Rs '. $row['price'] . '</td>';
-                    echo '<td style="text-align: center">'.'Rs '.$row['quantity'] * $row['price'] . '</td>';
-                    echo '<td style="text-align: center">' . $row['details'] . '</td>';
-                    echo "<td style='text-align: center'><a onClick=\"javascript: return confirm('Please confirm deletion');\" href=\"delete.php?id=".$row['id']."\"><img src='images/icons/delete.ico' height='24'/></a></td>";
-                    echo "<td style='text-align: center'><a href=\"update.php?id=".$row['id']."&mode=wo\"><img src='images/icons/edit.png' alt='' height='24'/></a></td>";
-                    echo '</tr>';
+                    
 
 
                     

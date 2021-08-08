@@ -26,10 +26,10 @@ function total($con,$id){
     return $tot;
 }
 
-function getAssets($con, $userid,$status) {
-    $sql = "SELECT * FROM assets WHERE userid=$userid AND status=$status";
+function getAssets($con, $userid) {
+    $sql = "SELECT * FROM assets WHERE userid=$userid";
     $res = mysqli_query($con,$sql);
-    return $con->query($sql);
+    return  $con->query($sql);
 }
 
 function getWriteOffAssets($con, $userid) {
@@ -61,21 +61,42 @@ function delete_data($con,$id){
     mysqli_query($con,$query);
 }
 
-function writeoff_data($con,$id){
+function delete_writeoff_data($con,$id){
 
-    $query = "UPDATE `assets` SET `status`=0 WHERE `id`= $id";
+    $query = "UPDATE `assets` SET `writeoff_quantity`=0,`writeoff_date`=NULL WHERE `id`='$id'";
+    print_r($query);
+    mysqli_query($con,$query);
+}
+
+function writeoff_data($con,$id,$quantity){
+
+    $sql = "SELECT * FROM `assets` WHERE `id`='$id'";
+    $res = mysqli_query($con,$sql);
+    $row= mysqli_fetch_assoc($res);
+    $current_wo = $row["writeoff_quantity"];
+    $newQ = $current_wo+$quantity;
+
+    $dt = date('Y-m-d');
+    $query = "UPDATE `assets` SET `writeoff_quantity`='$newQ',`writeoff_date`='$dt' WHERE `id`='$id'";
+    print_r($query);
     mysqli_query($con,$query);
 }
 
 
 function getCount($con,$category,$id,$status){
-    $sql = "SELECT * FROM `assets` WHERE `category`='$category' AND userid='$id' AND status=$status";
+    $sql = "SELECT * FROM `assets` WHERE `category`='$category' AND userid='$id'";
     $res = mysqli_query($con,$sql);
 
     if(mysqli_num_rows($res)>1) {
         $count=0;
         while ($row = mysqli_fetch_assoc($res)) {
-            $count = $count+$row['quantity'];
+            if($status==1){
+                $count = $count+( $row['quantity'] - $row['writeoff_quantity']);
+            }else{
+
+                $count = $count+$row['writeoff_quantity'];
+            }
+            
 
         }
 
@@ -83,7 +104,13 @@ function getCount($con,$category,$id,$status){
 
     } else if(mysqli_num_rows($res)==1){
         $row= mysqli_fetch_assoc($res);
-       return $row['quantity'];
+        if($status==1){
+            return ($row['quantity'] - $row['writeoff_quantity']);
+        }else{
+
+            return $row['writeoff_quantity'];
+        }
+       
 
     }else {
         return 0;
@@ -92,19 +119,29 @@ function getCount($con,$category,$id,$status){
 
 function getPrice($con,$category,$id,$status){
 
-    $sql = "SELECT * FROM `assets` WHERE `category`='$category' AND userid='$id' AND status=$status";
+    $sql = "SELECT * FROM `assets` WHERE `category`='$category' AND userid='$id'";
     $res = mysqli_query($con,$sql);
     if(mysqli_num_rows($res)>1) {
         $price=0;
         while ($row = mysqli_fetch_assoc($res)) {
-            $price = $price + ($row['price']*$row['quantity']);
+            if($status==1){
+                $price = $price + ($row['price']* ( $row['quantity'] - $row['writeoff_quantity']) );
+            }else{
+                $price = $price + ($row['price']* ($row['writeoff_quantity']) );
+
+            }
         }
 
         return $price;
 
     } else if(mysqli_num_rows($res)==1){
         $row= mysqli_fetch_assoc($res);
-        return $row['quantity']*$row['price'];
+        if($status==1){
+            return ($row['price']* ( $row['quantity'] - $row['writeoff_quantity']) );
+        }else{
+            return $row['writeoff_quantity']*$row['price'];
+        }
+        
 
     } else {
         return 0;
