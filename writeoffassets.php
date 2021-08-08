@@ -78,8 +78,8 @@ if(logged_in() === false){
                         echo "<td style='text-align: center'>" . $row["title"] . "</td>";
                         echo "<td style='text-align: center'>" . $row["category"] . '</td>';
                         echo '<td style="text-align: center">' . $row['writeoff_quantity'] . '</td>';
-                        echo '<td style="text-align: center">' .'Rs '. $row['price'] . '</td>';
-                        echo '<td style="text-align: center">'.'Rs '.$row['writeoff_quantity'] * $row['price'] . '</td>';
+                        echo '<td style="text-align: center">' . $row['price'] .' Rs '. '</td>';
+                        echo '<td style="text-align: center">' .$row['writeoff_quantity'] * $row['price'] .' Rs '. '</td>';
                         echo '<td style="text-align: center">' . $row['details'] . '</td>';
                         echo "<td style='text-align: center'><a onClick=\"javascript: return confirm('Please confirm deletion?');\" href=\"writeoffdelete.php?id=".$row['id']."\"><img src='images/icons/delete.ico' height='24'/></a></td>";
                         
