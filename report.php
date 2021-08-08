@@ -58,11 +58,22 @@ if(logged_in() === false){
 
 <?php
 $id = $user_data['id'];
-$asset_data=getAssets($con,$id);
+$mode = $_GET['mode'];
+$status=1;
+if($mode=="wo"){
+    $status = 0;
+}
+$asset_data=getAssets($con,$id,$status);
 ?>
 
 <div class="content-center">
-    <div id="topic"> General Report</div>
+    <?php
+    if($status==1){
+        echo "<div id='topic'> General Report</div>";
+    }else{
+        echo "<div id='topic'> Write Off Report</div>";
+    }
+    ?>
 <table border=0 id="table">
     <tr>
 
@@ -86,9 +97,9 @@ $asset_data=getAssets($con,$id);
     $tprice=0;
     foreach($cat as $values){
 
-        $count = getCount($con,$values,$id);
+        $count = getCount($con,$values,$id,$status);
         $tcount= $tcount+$count;
-        $price = getPrice($con,$values,$id);
+        $price = getPrice($con,$values,$id,$status);
         $tprice= $tprice+$price;
         $lineData = array($cat, $count,$price); 
         $excelData .= implode("\t", array_values($lineData)) . "\n"; 

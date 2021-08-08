@@ -41,7 +41,7 @@ if(logged_in() === false){
 
             <label for="email">Welcome <?php echo $user_data['first_name']; ?> </label>
 
-            <input type="image" src="images/icons/home.png" title="home" value="Home" style="margin-left:10px;"/>
+            <a href="home.php"><input type="image" src="images/icons/home.png" title="home" value="Home" style="margin-left:10px;"/></a>
             <a href="profile.php"><input type="image" src="images/icons/user.png" title="Profile" value="settings " style="margin-left:10px;"/></a>
             <a href="logout.php"><input type="image" src="images/icons/logout.png" title="Logout" value="Sign Out" style="margin-left:10px;"/></a>
 
@@ -50,8 +50,10 @@ if(logged_in() === false){
 
 
     </header>
-    <?php $id=$_GET['id'];
-    $asset_data=asset_data($con,$id);?>
+    <?php 
+        $id=$_GET['id'];
+        $mode=$_GET['mode'];
+        $asset_data=asset_data($con,$id);?>
 
     <div class="content-center">
         <div id="topic"><h3><?php echo $asset_data['title'];?></h3></div>
@@ -88,7 +90,12 @@ if(logged_in() === false){
 
 
                 update_assets($con,$update_data,$id);
-                header('Location:home.php');
+                if ($mode=="wo") {
+                    header('Location:writeoffassets.php');
+                }else{
+                    header('Location:home.php');
+                }
+                
                 exit();
 
             }

@@ -26,8 +26,14 @@ function total($con,$id){
     return $tot;
 }
 
-function getAssets($con, $userid) {
-    $sql = "SELECT * FROM assets WHERE userid=$userid AND status=1";
+function getAssets($con, $userid,$status) {
+    $sql = "SELECT * FROM assets WHERE userid=$userid AND status=$status";
+    $res = mysqli_query($con,$sql);
+    return $con->query($sql);
+}
+
+function getWriteOffAssets($con, $userid) {
+    $sql = "SELECT * FROM assets WHERE userid=$userid AND status=0";
     $res = mysqli_query($con,$sql);
     return $con->query($sql);
 }
@@ -55,15 +61,15 @@ function delete_data($con,$id){
     mysqli_query($con,$query);
 }
 
-function write_data($con,$id){
+function writeoff_data($con,$id){
 
     $query = "UPDATE `assets` SET `status`=0 WHERE `id`= $id";
     mysqli_query($con,$query);
 }
 
 
-function getCount($con,$category,$id){
-    $sql = "SELECT * FROM `assets` WHERE `category`='$category' AND userid='$id'";
+function getCount($con,$category,$id,$status){
+    $sql = "SELECT * FROM `assets` WHERE `category`='$category' AND userid='$id' AND status=$status";
     $res = mysqli_query($con,$sql);
 
     if(mysqli_num_rows($res)>1) {
@@ -84,9 +90,9 @@ function getCount($con,$category,$id){
     }
 }
 
-function getPrice($con,$category,$id){
+function getPrice($con,$category,$id,$status){
 
-    $sql = "SELECT * FROM `assets` WHERE `category`='$category' AND userid='$id'";
+    $sql = "SELECT * FROM `assets` WHERE `category`='$category' AND userid='$id' AND status=$status";
     $res = mysqli_query($con,$sql);
     if(mysqli_num_rows($res)>1) {
         $price=0;

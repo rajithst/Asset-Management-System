@@ -1,7 +1,5 @@
 
 <?php 
-ini_set('display_errors', 1);
-error_reporting(~0);
 require 'core/init.php';
 
 if(logged_in() === false){
@@ -39,7 +37,7 @@ if(logged_in() === false){
             <nav>
                     <label for="email">Welcome <?php echo $user_data['first_name']; ?> </label>
 
-                <input type="image" src="images/icons/home.png" title="home" value="Home" style="margin-left:10px;"/>
+                <a href="home.php"><input type="image" src="images/icons/home.png" title="home" value="Home" style="margin-left:10px;"/></a>
                 <a href="profile.php"><input type="image" src="images/icons/user.png" title="Profile" value="settings " style="margin-left:10px;"/></a>
                 <a href="logout.php"><input type="image" src="images/icons/logout.png" title="Logout" value="Sign Out" style="margin-left:10px;"/></a>
 
@@ -48,9 +46,8 @@ if(logged_in() === false){
         </header>
 
         <div class="content-center">
-            <div id="topic">Current Assets</div>
-            <a href="writeoffassets.php"><div id="add-new">Writeoff Assets</div></a>
-            <a href="add.php"><div id="add-new">Add new asset</div></a>
+            <div id="topic">Write Off Assets</div>
+            
 
             <table border=0>
             <tr>
@@ -63,7 +60,7 @@ if(logged_in() === false){
             </tr>
             <?php
                 $id = $user_data['id'];
-                $result = getAssets($con, $user_data["id"],1);
+                $result = getWriteOffAssets($con, $user_data["id"]);
                 $i = 1;
                 while($row = $result->fetch_assoc()) {
                     echo "<tr style='background-color:";
@@ -81,8 +78,7 @@ if(logged_in() === false){
                     echo '<td style="text-align: center">'.'Rs '.$row['quantity'] * $row['price'] . '</td>';
                     echo '<td style="text-align: center">' . $row['details'] . '</td>';
                     echo "<td style='text-align: center'><a onClick=\"javascript: return confirm('Please confirm deletion');\" href=\"delete.php?id=".$row['id']."\"><img src='images/icons/delete.ico' height='24'/></a></td>";
-                    echo "<td style='text-align: center'><a href=\"update.php?id=".$row['id']."\"><img src='images/icons/edit.png' alt='' height='24'/></a></td>";
-                    echo "<td style='text-align: center'><a onClick=\"javascript: return confirm('Please confirm Write off');\" href=\"writeoff.php?id=".$row['id']."\">Write Off</a></td>";
+                    echo "<td style='text-align: center'><a href=\"update.php?id=".$row['id']."&mode=wo\"><img src='images/icons/edit.png' alt='' height='24'/></a></td>";
                     echo '</tr>';
 
 
@@ -95,7 +91,7 @@ if(logged_in() === false){
 
 
             </table>
-            <a href="report.php"><div id="report">Generate Report</div></a>
+            <a href="report.php?mode=wo"><div id="report">Generate Report</div></a>
         </div>
         
     </div>
